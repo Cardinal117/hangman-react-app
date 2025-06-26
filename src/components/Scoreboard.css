@@ -1,0 +1,349 @@
+/* Base container for both side scoreboards. */
+.side-scoreboard {
+  position: fixed;
+  top: 190px;
+  min-width: 220px;
+  z-index: 100;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+/* Left scoreboard style. */
+/* Positions scoreboard on the left side. */
+.side-scoreboard.left {
+  left: 8px;
+}
+
+/* Right scoreboard style. */
+/* Positions scoreboard on the right side. */
+.side-scoreboard.right {
+  right: 8px;
+  max-width: 500px;
+  overflow-y: auto;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Scoreboard Styling to neaten up lists. */
+.scoreboard li,
+.scoreboard ul,
+.scoreboard ol {
+  line-height: 1.5;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+}
+
+/* Scoreboard Styling for h2. */
+.scoreboard h2 {
+  font-size: 1.8rem;
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* Scoreboard Styling to make scoreboards easier to read. */
+@media (max-width: 700px) {
+  .side-scoreboard.left {
+    position: static;
+    margin: 16px auto;
+    left: unset;
+    right: unset;
+    top: unset;
+  }
+}
+
+@media (max-width: 500px) {
+  .side-scoreboard.right {
+    position: static;
+    margin: 16px auto;
+    left: unset;
+    right: unset;
+    top: unset;
+    max-width: 90vw;
+  }
+}
+
+/* Envelopes screen with a win screen for when the won game state is triggered. */
+.scoreboard.game-won {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle at 50% 40%,
+    #ffe066 0%,
+    #ffb347 60%,
+    #fffbe6 100%
+  );
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: 0 0 80px 20px #ffe06688, 0 0 0 transparent;
+  min-width: 0;
+  padding: 0;
+}
+
+/* Word Reveal style for game-won. */
+.scoreboard.game-won .victory-subtext {
+  color: #222;
+  font-size: 1.3rem;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 32px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #fffbe6, 0 0 2px #ffe066;
+  font-family: "Press Start 2P", cursive;
+  opacity: 0.92;
+}
+
+/* Styles the victory message. */
+.scoreboard.game-won .game-won-text {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 4px;
+  text-shadow: 0 0 32px #ffe066, 0 0 12px #ffb347, 0 0 4px #fff;
+  font-family: "Press Start 2P", cursive;
+  animation: victory-glow 1.5s infinite alternate;
+}
+
+/* Animation for victory message glow. */
+@keyframes victory-glow {
+  0% {
+    text-shadow: 0 0 32px #ffe066, 0 0 12px #ffb347, 0 0 4px #fff;
+    color: #fff;
+  }
+  100% {
+    text-shadow: 0 0 64px #fffbe6, 0 0 32px #ffe066, 0 0 16px #ffb347;
+    color: #ffb347;
+  }
+}
+
+/* Envelopes screen with a game over screen for when the game over state is triggered. */
+.scoreboard.game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-width: 0;
+  padding: 0;
+}
+
+/* Word Reveal style for game over. */
+.scoreboard.game-over .game-over-subtext {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 32px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #ff2222, 0 0 2px #fff;
+  font-family: "Press Start 2P", cursive;
+  opacity: 0.92;
+}
+
+/* Styles the game over message. */
+.scoreboard.game-over .game-over-text {
+  color: #ff2222;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 4px;
+  text-shadow: 0 0 24px #ff2222, 0 0 8px #fff;
+  font-family: "Press Start 2P", cursive;
+  animation: lost-glow 1.5s infinite alternate;
+}
+
+/* Animation for game over message glow. */
+@keyframes lost-glow {
+  0% {
+    text-shadow: 0 0 32px #ff2222, 0 0 12px #fff, 0 0 4px #ffb347;
+    color: #ff2222;
+  }
+  100% {
+    text-shadow: 0 0 64px #fff, 0 0 32px #ff2222, 0 0 16px #ffb347;
+    color: #fff;
+  }
+}
+
+/* Main scoreboard container. */
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222;
+  color: #fff;
+  padding: 20px 28px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  margin: 32px auto 0 auto;
+  min-width: 260px;
+  font-size: 1.1rem;
+  gap: 12px;
+}
+
+/* Highlight styling for the hangman (selected/active states). */
+.scoreboard .highlight {
+  background: #ffb347;
+  color: #222;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-weight: bold;
+  box-shadow: 0 0 8px 2px #ffb34766;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Styles the score number. */
+.scoreboard .score {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Styles the scoreboard heading. */
+.scoreboard .heading {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Styles incorrect guesses count. */
+.scoreboard .incorrect {
+  color: #ffb347;
+  font-size: 1.2rem;
+}
+
+/* Styles the score message. */
+.scoreboard .score-message {
+  color: #b3e6b3;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Styles the guesses section title. */
+.scoreboard .guesses-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Styles the guessed letters/words. */
+.scoreboard .guesses {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #ffb347;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Styles score message for red alert(when the incorrect guesses number is 7 or above). */
+.score-message.red-alert {
+  color: #ff4c4c !important;
+  font-weight: bold;
+  font-size: larger;
+}
+/* Styles score message for green alert. */
+.score-message.green-alert {
+  color: #4caf50 !important;
+  font-weight: bold;
+  font-size: larger;
+}
+
+/* Score explosion animation for when the score gets increased. */
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    color: #ffb347;
+    text-shadow: 0 0 0px #fff;
+  }
+  50% {
+    transform: scale(1.6);
+    color: #ffffff;
+    text-shadow: 0 0 16px #ffb347;
+  }
+  100% {
+    transform: scale(1);
+    color: #ffb347;
+    text-shadow: 0 0 0px #fff;
+  }
+}
+
+/* Applies explosion animation to score. */
+.score-animate {
+  animation: explode 0.5s ease-in-out;
+}
+
+/* Incorrect count coloring styling. */
+.scoreboard .incorrect.safe {
+  color: #b3e6b3;
+}
+
+.scoreboard .incorrect.warning {
+  color: #ffb347;
+  font-size: 1.5rem !important;
+}
+
+.scoreboard .incorrect.danger {
+  color: #ff4c4c;
+  font-size: 2rem !important;
+}
+
+/* Shake animation for the scoreboard message. */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-6px);
+  }
+  30% {
+    transform: translateX(6px);
+  }
+  45% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  90% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Applies shake animation to score message. */
+.scoreboard .score-message.shake {
+  animation: shake 0.5s;
+}
+
+/* Hides the element completely. */
+.hidden-element {
+  display: none !important;
+}

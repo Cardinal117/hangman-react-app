@@ -1,0 +1,54 @@
+{
+  "words": [
+    {
+      "word": "react",
+      "hint": "A JavaScript library for building UIs",
+      "category": "tech"
+    },
+    {
+      "word": "banana",
+      "hint": "A yellow fruit often found in bunches",
+      "category": "food"
+    },
+    {
+      "word": "matrix",
+      "hint": "A simulated reality or a famous sci-fi movie",
+      "category": "movie"
+    },
+    {
+      "word": "algorithm",
+      "hint": "A step-by-step procedure for calculations",
+      "category": "tech"
+    },
+    {
+      "word": "swordfish",
+      "hint": "An ocean predator with a long pointed snout",
+      "category": "animal"
+    },
+    {
+      "word": "cybernetic",
+      "hint": "Pertaining to man-machine systems",
+      "category": "sci-fi"
+    },
+    {
+      "word": "prototype",
+      "hint": "The first model or early version of a system",
+      "category": "engineering"
+    },
+    {
+      "word": "console",
+      "hint": "Used for gaming or terminal access",
+      "category": "tech"
+    },
+    {
+      "word": "variable",
+      "hint": "A storage symbol in programming",
+      "category": "coding"
+    },
+    {
+      "word": "invisible",
+      "hint": "Cannot be seen by the eye",
+      "category": "concept"
+    }
+  ]
+}
